@@ -16,18 +16,18 @@ plural_nouns = ['apples', 'oranges', 'kiwis', 'clementines', 'wildabeasts',
 
 def title():
 	'''This function chooses a random title for the name '''
-	return random.choice(titles)
+	return random.choice(titles).capitalize()
 def adj():
 	''' This function chooses a random adj for the band '''
-	return random.choice(adjs)
+	return random.choice(adjs).capitalize()
 def plural_noun():
-	return random.choice(plural_nouns)
+	return random.choice(plural_nouns).capitalize()
 def main():
 	while True:
 		name = raw_input("Enter your name:")
 		if name == "q":
 			break
 		random.seed(name)
-		print title(), name, " and the ", adj(), plural_noun()
+		print title(), name, " And The ", adj(), plural_noun()
 		
 main()
