@@ -1,6 +1,7 @@
 #!/usr/bin/env python
+import math
 a = int(raw_input("Enter value of a: "))
-b = int(raw_input("Enter value of a: "))
+b = int(raw_input("Enter value of b: "))
 c = int(raw_input("Enter value of c: "))
 d = b * b - 4 * a * c
 if d < 0:
