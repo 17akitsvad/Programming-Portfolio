@@ -14,12 +14,12 @@ Do you want to encrypt or decrypt?
 (d)ecrypt
 (q)uit
 """
-	choice = ''
-	while choice != 'e' and choice != 'd' and choice != 'q':
-	    choice = raw_input("choose: ")
+	option = raw_input("choose: ")
+	while option != 'e' and option != 'd' and option != 'q':
+		option = raw_input("choose: ")
 	
-	return choice
-	
+	return option
+
 def MethodMenu():
 	print """
 Which method do you want to use?
@@ -27,25 +27,37 @@ Which method do you want to use?
 (p)seudo-random offset
 (s)ubstitution cipher
 """
-	choice = ''
-	while choice != 'c' and choice != 'p' and choice != 's':
-		choice = raw_input("choose: ")
+	option = raw_input("choose: ")
+	while option != 'c' and option != 'p' and option != 's':
+		option = raw_input("choose: ")
 	
-	return choice
+	return option
 
 def main():
 	alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789,.?! \t\n\r"
 	PrintDescription()
 	
 	while True:
-		option = StartMenu()
-		print "option is ", option
-		if option == 'q':
+		choice = StartMenu()
+		if choice == 'q':
 			break
-		method_option = MethodMenu()
-		file_name = raw_input("What file? ")
-			
-	
-	print "Good Bye"
+		method_choice = MethodMenu()
+		
+		print "Enter an input file name: "
+		source_file = raw_input()
+		print "Enter an output file name: "
+		destination_file = raw_input()
+		print "Enter your password: "
+		password = raw_input()
+		
+		try:
+			fin = open(source_file, "rb")
+		except:
+			print "That file doesn't exist"
+			continue
+		fout = open(destination_file, "wb")
+		
+		
+	print "Good Bye"	
 
 main()
